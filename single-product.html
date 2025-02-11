@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Dbee's Kids Shop</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation Bar (Same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <!-- ... Copy navbar from index.html ... -->
+    </nav>
+
+    <!-- Product Details Section -->
+    <section class="product-details py-5">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+                    <li class="breadcrumb-item active product-category" aria-current="page">Category</li>
+                </ol>
+            </nav>
+
+            <div class="row g-4">
+                <!-- Product Images -->
+                <div class="col-md-6">
+                    <div class="product-images">
+                        <div class="main-image mb-3">
+                            <img src="" alt="" class="img-fluid rounded" id="mainImage">
+                        </div>
+                        <div class="thumbnail-images row g-2" id="thumbnailContainer">
+                            <!-- Thumbnails will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <div class="product-info">
+                        <h1 class="product-title mb-3" id="productTitle"></h1>
+                        <div class="product-price mb-3">
+                            <span class="current-price" id="currentPrice"></span>
+                            <span class="original-price text-decoration-line-through text-muted"
+                                id="originalPrice"></span>
+                            <span class="discount-badge bg-danger text-white px-2 py-1 rounded ms-2"
+                                id="discountBadge"></span>
+                        </div>
+                        <div class="product-description mb-4" id="shortDescription"></div>
+
+                        <!-- Add to Cart Section -->
+                        <div class="add-to-cart-section mb-4">
+                            <div class="row g-2">
+                                <div class="col-auto">
+                                    <div class="input-group quantity-selector" style="width: 120px;">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="decreaseQuantity">-</button>
+                                        <input type="number" class="form-control text-center" value="1" min="1"
+                                            id="quantity">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="increaseQuantity">+</button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary w-100" id="addToCartBtn">
+                                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Meta -->
+                        <div class="product-meta">
+                            <p class="mb-2"><strong>SKU:</strong> <span id="productSku"></span></p>
+                            <p class="mb-2"><strong>Category:</strong> <span id="productCategory"></span></p>
+                            <p class="mb-2"><strong>Brand:</strong> <span id="productBrand"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Tabs -->
+            <div class="product-tabs mt-5">
+                <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab"
+                            data-bs-target="#description">Description</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab"
+                            data-bs-target="#specifications">Specifications</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">Reviews</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-4 border border-top-0">
+                    <div class="tab-pane fade show active" id="description">
+                        <!-- Long description will be loaded here -->
+                    </div>
+                    <div class="tab-pane fade" id="specifications">
+                        <!-- Specifications will be loaded here -->
+                    </div>
+                    <div class="tab-pane fade" id="reviews">
+                        <!-- Reviews will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recently Viewed Products -->
+            <div class="recently-viewed mt-5">
+                <h3 class="mb-4">Recently Viewed</h3>
+                <div class="row g-4" id="recentlyViewedContainer">
+                    <!-- Recently viewed products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-dark text-light py-5">
+        <!-- ... Copy footer from index.html ... -->
+    </footer>
+
+    <!-- Cart Offcanvas (Same as index.html) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <!-- ... Copy cart offcanvas from index.html ... -->
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product.js"></script>
+</body>
+
+</html>

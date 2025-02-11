@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dbee's Kids Shop - Quality Children's Products</title>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+
+    <!-- Firebase Authentication -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+    <!-- Firebase Firestore -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/logo.webp" alt="Dbee's Kids Shop" height="40">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Search Bar -->
+                <form class="d-flex mx-auto my-2 my-lg-0 flex-grow-1 justify-content-center" style="max-width: 500px;">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Navigation Items -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brands.html">Shop by Brand</a>
+                    </li>
+
+                    <!-- Profile Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" id="loginBtn">Login</a></li>
+                            <li><a class="dropdown-item" href="#" id="registerBtn">Create Account</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Cart Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" id="cartBtn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                                id="cartCount">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative">
+        <div class="container-fluid px-0">
+            <div class="hero-carousel">
+                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                            class="active"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="assets/images/hero/hero-1.webp" class="d-block w-100" alt="Kids Fashion">
+                            <div class="carousel-caption">
+                                <h2 class="display-4 fw-bold">Welcome to Dbee's Kids Shop</h2>
+                                <p class="lead">Discover quality products for your little ones</p>
+                                <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/images/hero/hero-2.webp" class="d-block w-100" alt="Baby Essentials">
+                            <div class="carousel-caption">
+                                <h2 class="display-4 fw-bold">Baby Essentials</h2>
+                                <p class="lead">Everything you need for your baby's comfort</p>
+                                <a href="shop.html" class="btn btn-primary btn-lg">Explore</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/images/hero/hero-1.webp" class="d-block w-100" alt="Toys Collection">
+                            <div class="carousel-caption">
+                                <h2 class="display-4 fw-bold">Toys & Games</h2>
+                                <p class="lead">Make playtime more fun and educational</p>
+                                <a href="shop.html" class="btn btn-primary btn-lg">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Slider Section -->
+    <section class="category-slider py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Shop by Category</h2>
+            <div class="position-relative">
+                <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row g-4">
+                                <div class="col-6 col-md-3">
+                                    <a href="shop.html?category=accessories" class="category-card text-decoration-none">
+                                        <div class="card h-100 border-0 shadow-sm">
+                                            <img src="assets/images/categories/accessories.png" class="card-img-top"
+                                                alt="Accessories">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title mb-0">Accessories</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a href="shop.html?category=strollers" class="category-card text-decoration-none">
+                                        <div class="card h-100 border-0 shadow-sm">
+                                            <img src="assets/images/categories/stroller.png" class="card-img-top"
+                                                alt="Strollers">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title mb-0">Strollers</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a href="shop.html?category=bags" class="category-card text-decoration-none">
+                                        <div class="card h-100 border-0 shadow-sm">
+                                            <img src="assets/images/categories/bag.png" class="card-img-top"
+                                                alt="Backpacks & Bags">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title mb-0">Backpacks & Bags</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a href="shop.html?category=beddings" class="category-card text-decoration-none">
+                                        <div class="card h-100 border-0 shadow-sm">
+                                            <img src="assets/images/categories/cradle.png" class="card-img-top"
+                                                alt="Beddings">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title mb-0">Beddings</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Additional carousel items for other categories -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Products Section -->
+    <section class="products-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Products</h2>
+            <div class="row g-4" id="productsContainer">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="shop.html" class="btn btn-primary btn-lg">Shop More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Banner Section -->
+    <section class="ad-banner py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="display-5 fw-bold mb-3">Special Offer!</h2>
+                    <p class="lead mb-4">Get up to 50% off on selected items in store. Limited time offer!</p>
+                    <a href="shop.html?sale=true" class="btn btn-primary btn-lg">Shop Now</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/images/banners/banner-1.jpg" alt="Special Offer" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products on Sale Section -->
+    <section class="sale-products py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Products on Sale</h2>
+            <div class="row g-4" id="saleProductsContainer">
+                <!-- Sale products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Brands Section -->
+    <section class="brands-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Brands</h2>
+            <div class="brands-carousel">
+                <div id="brandsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-4 col-md-2">
+                                    <img src="assets/images/brands/huggies.jpg" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="col-4 col-md-2">
+                                    <img src="assets/images/brands/johnsons.jpg" alt="Brand 2" class="img-fluid">
+                                </div>
+                                <div class="col-4 col-md-2">
+                                    <img src="assets/images/brands/nano_bebe.jpg" alt="Brand 3" class="img-fluid">
+                                </div>
+                                <div class="col-4 col-md-2">
+                                    <img src="assets/images/brands/nestle.jpg" alt="Brand 4" class="img-fluid">
+                                </div>
+                                <div class="col-4 col-md-2">
+                                    <img src="assets/images/brands/nuk.jpg" alt="Brand 5" class="img-fluid">
+                                </div>
+                                <div class="col-4 col-md-2">
+                                    <img src="assets/images/brands/pampers.jpg" alt="Brand 6" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Additional brand carousel items -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About Us Column -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">About Us</h5>
+                    <p>Dbee's Kids Shop is your one-stop destination for quality children's products. We offer a wide
+                        range of items from trusted brands at competitive prices.</p>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:info@dbeeskids.com"
+                                class="text-light text-decoration-none">info@dbeeskids.com</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            <a href="tel:+1234567890" class="text-light text-decoration-none">+1 (234) 567-890</a>
+                        </li>
+                        <li class="mb-2">
+                            <div class="social-icons">
+                                <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="col-md-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="text-light text-decoration-none">Terms and Conditions</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-light text-decoration-none">Payment Methods</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-light text-decoration-none">Return Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-top border-secondary pt-4 mt-4 text-center">
+                <p class="mb-0">&copy; 2024 Dbee's Kids Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="cartItems" class="mb-3">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="d-grid gap-2">
+                <a href="cart.html" class="btn btn-outline-primary">View Cart</a>
+                <a href="checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="alert alert-danger d-none" id="loginError"></div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a href="#" id="showRegisterModal">Don't have an account? Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="registerPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="alert alert-danger d-none" id="registerError"></div>
+                        <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a href="#" id="showLoginModal">Already have an account? Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>
