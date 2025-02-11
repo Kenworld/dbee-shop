@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": "p1",
+      "name": "Baby Soft Cotton Romper",
+      "regularPrice": 29.99,
+      "salePrice": 24.99,
+      "main_image": "assets/images/products/romper-1.jpg",
+      "category": "clothing",
+      "description": "Soft and comfortable cotton romper perfect for your baby's delicate skin.",
+      "stock": 50,
+      "brand": "Baby Comfort"
+    },
+    {
+      "id": "p2",
+      "name": "Premium Baby Stroller",
+      "regularPrice": 299.99,
+      "salePrice": null,
+      "main_image": "assets/images/products/stroller-1.jpg",
+      "category": "strollers",
+      "description": "Lightweight and durable stroller with multiple reclining positions.",
+      "stock": 15,
+      "brand": "KidsCruise"
+    },
+    {
+      "id": "p3",
+      "name": "Educational Building Blocks",
+      "regularPrice": 39.99,
+      "salePrice": 29.99,
+      "main_image": "assets/images/products/blocks-1.jpg",
+      "category": "toys",
+      "description": "Colorful building blocks to enhance creativity and motor skills.",
+      "stock": 100,
+      "brand": "SmartKids"
+    },
+    {
+      "id": "p4",
+      "name": "Baby Diaper Bag",
+      "regularPrice": 49.99,
+      "salePrice": null,
+      "main_image": "assets/images/products/bag-1.jpg",
+      "category": "bags",
+      "description": "Spacious diaper bag with multiple compartments and changing pad.",
+      "stock": 30,
+      "brand": "MomEssentials"
+    },
+    {
+      "id": "p5",
+      "name": "Baby Crib Mobile",
+      "regularPrice": 34.99,
+      "salePrice": 29.99,
+      "main_image": "assets/images/products/mobile-1.jpg",
+      "category": "accessories",
+      "description": "Musical mobile with soft plush toys to soothe your baby.",
+      "stock": 25,
+      "brand": "DreamBaby"
+    },
+    {
+      "id": "p6",
+      "name": "Baby Bedding Set",
+      "regularPrice": 79.99,
+      "salePrice": null,
+      "main_image": "assets/images/products/bedding-1.jpg",
+      "category": "beddings",
+      "description": "Complete 4-piece bedding set made from 100% organic cotton.",
+      "stock": 20,
+      "brand": "CozyNest"
+    },
+    {
+      "id": "p7",
+      "name": "Baby Bath Set",
+      "regularPrice": 24.99,
+      "salePrice": 19.99,
+      "main_image": "assets/images/products/bath-1.jpg",
+      "category": "accessories",
+      "description": "Complete bath set including soft towel, washcloths, and bath toys.",
+      "stock": 40,
+      "brand": "BabyClean"
+    },
+    {
+      "id": "p8",
+      "name": "Baby Feeding Set",
+      "regularPrice": 19.99,
+      "salePrice": null,
+      "main_image": "assets/images/products/feeding-1.jpg",
+      "category": "accessories",
+      "description": "BPA-free feeding set with plates, spoons, and sippy cup.",
+      "stock": 60,
+      "brand": "MealTime"
+    },
+    {
+      "id": "p9",
+      "name": "Baby Monitor",
+      "regularPrice": 149.99,
+      "salePrice": 129.99,
+      "main_image": "assets/images/products/monitor-1.jpg",
+      "category": "accessories",
+      "description": "Digital baby monitor with night vision and two-way audio.",
+      "stock": 15,
+      "brand": "SafeWatch"
+    },
+    {
+      "id": "p10",
+      "name": "Baby Play Mat",
+      "regularPrice": 44.99,
+      "salePrice": null,
+      "main_image": "assets/images/products/playmat-1.jpg",
+      "category": "toys",
+      "description": "Thick, non-toxic foam play mat with educational designs.",
+      "stock": 35,
+      "brand": "PlayTime"
+    }
+  ]
+} 
