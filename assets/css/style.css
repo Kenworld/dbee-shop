@@ -519,3 +519,9 @@ footer a:hover {
 .form-control:focus + .input-group-append .btn {
   border-color: var(--bs-primary);
 }
+
+/* Prevent the add to cart button from triggering the card click */
+.product-card .add-to-cart-btn {
+  position: relative;
+  z-index: 2;
+}

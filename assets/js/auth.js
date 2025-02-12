@@ -138,7 +138,7 @@ class AuthManager {
       });
     } else {
       profileDropdown.innerHTML = `
-                <li><a class="dropdown-item" href="#" id="loginBtn">Login</a></li>
+                <li><a class="dropdown-item" href="login.html" id="loginBtn">Login</a></li>
                 <li><a class="dropdown-item" href="#" id="registerBtn">Create Account</a></li>
             `;
 

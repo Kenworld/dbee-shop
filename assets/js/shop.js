@@ -194,7 +194,9 @@ class ShopManager {
 
     return `
       <div class="col-6 col-lg-3 col-md-4">
-        <div class="card product-card h-100 border-0">
+        <div class="card product-card h-100 border-0" onclick="window.location.href='single-product.html?id=${
+          product.id
+        }'" style="cursor: pointer;">
           ${
             discount
               ? `<span class="badge bg-danger sale-badge">-${discount}%</span>`
@@ -226,7 +228,8 @@ class ShopManager {
                 }
               </div>
               <button class="btn btn-primary btn-sm add-to-cart-btn" 
-                data-product='${JSON.stringify(product)}'>
+                data-product='${JSON.stringify(product)}'
+                onclick="event.stopPropagation()">
                 <i class="fas fa-shopping-cart"></i>
               </button>
             </div>
@@ -254,7 +257,9 @@ class ShopManager {
 
     return `
     <div class="col-12">
-      <div class="card product-card h-100 border-0">
+      <div class="card product-card h-100 border-0" onclick="window.location.href='single-product.html?id=${
+        product.id
+      }'" style="cursor: pointer;">
         <div class="row g-0">
           <div class="col-md-3 position-relative">
             ${
@@ -290,7 +295,8 @@ class ShopManager {
                   }
                 </div>
                 <button class="btn btn-primary btn-sm add-to-cart-btn" 
-                  data-product='${JSON.stringify(product)}'>
+                  data-product='${JSON.stringify(product)}'
+                  onclick="event.stopPropagation()">
                   <i class="fas fa-shopping-cart"></i> Add to Cart
                 </button>
               </div>

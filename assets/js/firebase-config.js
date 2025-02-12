@@ -9,9 +9,8 @@ const firebaseConfig = {
   authDomain: "deebee-shop.firebaseapp.com",
   projectId: "deebee-shop",
   storageBucket: "deebee-shop.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "388424027848",
-  measurementId: "1:388424027848:web:16a9062a542dd2d0101ffd", // Optional
+  messagingSenderId: "388424027848",
+  appId: "1:388424027848:web:16a9062a542dd2d0101ffd",
 };
 
 // Initialize Firebase

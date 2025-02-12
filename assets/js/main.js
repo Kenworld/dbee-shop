@@ -152,7 +152,10 @@ class CartManager {
     if (savedCart) {
       const parsedCart = JSON.parse(savedCart);
       this.items = Array.isArray(parsedCart) ? parsedCart : [];
-      this.updateCartCount();
+      if (this.items.length > 0) {
+        this.updateCartCount();
+        this.renderCartItems();
+      }
     }
   }
 
@@ -165,20 +168,91 @@ class CartManager {
       this.items.push({
         id: product.id,
         name: product.name,
-        price: product.price,
-        image: product.image,
+        price: parseFloat(product.salePrice || product.regularPrice),
+        image: product.main_image,
         quantity,
       });
     }
 
     this.saveCart();
     this.updateCartCount();
+    this.renderCartItems();
+
+    // Show the cart offcanvas
+    const cartOffcanvas = new bootstrap.Offcanvas(
+      document.getElementById("cartOffcanvas")
+    );
+    cartOffcanvas.show();
+  }
+
+  renderCartItems() {
+    const cartItemsContainer = document.getElementById("cartItems");
+    const offcanvasCartTotal = document.getElementById("offcanvasCartTotal");
+    const cartTotal = 0;
+    if (!cartItemsContainer) return;
+
+    if (this.items.length === 0) {
+      cartItemsContainer.innerHTML =
+        '<p class="text-center text-muted">Your cart is empty</p>';
+      return;
+    }
+
+    const itemsHTML = this.items
+      .map(
+        (item) => `
+        <div class="cart-item mb-3">
+          <div class="d-flex align-items-center">
+            <img src="${item.image}" alt="${
+          item.name
+        }" class="img-fluid me-3" style="width: 60px; height: 60px; object-fit: contain;">
+            <div class="flex-grow-1">
+              <h6 class="mb-0">${item.name}</h6>
+              <p class="mb-0 text-muted">
+                GHS ${
+                  typeof item.price === "number"
+                    ? item.price.toFixed(2)
+                    : "0.00"
+                } × ${item.quantity}
+              </p>
+            </div>
+            <button class="btn btn-sm btn-outline-danger remove-from-cart" 
+              data-product-id="${item.id}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      `
+      )
+      .join("");
+
+    cartItemsContainer.innerHTML = itemsHTML;
+
+    // Add event listeners to remove buttons
+    const removeButtons =
+      cartItemsContainer.querySelectorAll(".remove-from-cart");
+    removeButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const productId = e.currentTarget.dataset.productId;
+        this.removeItem(productId);
+      });
+    });
   }
 
   removeItem(productId) {
     this.items = this.items.filter((item) => item.id !== productId);
     this.saveCart();
     this.updateCartCount();
+    this.renderCartItems();
+
+    // If cart is empty, hide the offcanvas
+    if (this.items.length === 0) {
+      const cartOffcanvas = bootstrap.Offcanvas.getInstance(
+        document.getElementById("cartOffcanvas")
+      );
+      if (cartOffcanvas) {
+        cartOffcanvas.hide();
+      }
+    }
   }
 
   updateCartCount() {
